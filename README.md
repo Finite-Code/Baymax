@@ -8,7 +8,7 @@ Q2. Can he search wikipedia?
 - Yes he can
 
 
-Q3. Does he know users name?
+Q3. Does he know user's name?
 - No
 
 
