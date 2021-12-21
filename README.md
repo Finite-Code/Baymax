@@ -1,7 +1,7 @@
 # Baymax!
 
 <h1> A Note For Some People:</h1>
-<h1> - If you copy it don't care caus' you forgot the definition of <b>HARDWORK</b></h1>
+<h1> -If you copy it I don't care cause' you forgot the definition of <b>HARDWORK</b></h1>
 
 Q1. Can he search google?
 - Yes he can.
