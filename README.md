@@ -1,5 +1,8 @@
 # Baymax!
 
+# A Note For some NoStAlIgIc People:
+# - If you copy it don't have any problem cause i know you don't have that will for HARDWORK
+
 Q1. Can he search google?
 - Yes he can.
 
