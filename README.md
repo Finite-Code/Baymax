@@ -11,12 +11,12 @@ Q2. Can he search wikipedia?
 - Yes he can
 
 
-Q3. Does he know user's name?
-- No
+Q3. Can he wakeup on Hotwords?
+- Yes
 
 
-Q4. Can he Play music?
-- No
+Q4. What is the Hotword?
+- Baymax
 
 
 Q5. Can he Put your PC on sleep?
