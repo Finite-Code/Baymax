@@ -14,24 +14,28 @@ import requests
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
-engine.setProperty('voice, voices[2].id', value='1')
+engine.setProperty('voice, voices[1].id', value='1')
 
 
 def speak(text):
     engine.say(text)
     engine.runAndWait()
 
+
 def wishMe():
     hour = datetime.datetime.now().hour
-    if hour>=0 and hour<12:
-        speak("Hello,Good Morning")
-        print("Hello,Good Morning")
-    elif hour>=12 and hour<18:
+    if hour >= 0 and hour < 4:
+        speak("Hello, I guess it's midnight")
+        print("Hello, I guess it's midnight")
+
+    elif hour >= 12 and hour < 18:
         speak("Hello,Good Afternoon")
         print("Hello,Good Afternoon")
+
     else:
         speak("Hello,Good Evening")
         print("Hello,Good Evening")
+
 
 def takeCommand():
     r = sr.Recognizer()
@@ -40,20 +44,19 @@ def takeCommand():
         audio = r.listen(source)
 
         try:
-            statement = r.recognize_google(audio,language='en-in')
-            print(f"user said:{statement}\n")
+            statement = r.recognize_google(audio, language='en-in')
+            print(f"You Said:{statement}\n")
 
         except Exception as e:
             speak("Pardon me, please say that again")
             return "None"
         return statement
 
-speak("Loading your AI personal assistant Baymax")
+
+speak("Loading your AI personal assistant Beymax")
 wishMe()
 
-
 if __name__ == '__main__':
-
 
     while True:
         speak("How can I help you?")
@@ -66,8 +69,6 @@ if __name__ == '__main__':
             print('your personal assistant Beymax is shutting down,Good bye')
             break
 
-
-
         if 'wikipedia' in statement:
             speak('Searching Wikipedia...')
             statement = statement.replace("wikipedia", "")
@@ -77,7 +78,15 @@ if __name__ == '__main__':
             speak(results)
 
         elif 'open youtube' in statement:
+            speak("Opening Youtube...")
             webbrowser.open_new_tab("https://www.youtube.com")
+            speak("youtube is open now")
+            time.sleep(5)
+
+        elif 'youtube' in statement:
+            speak("Opening Youtube...")
+            statementyt = statement.replace("youtube", "", "")
+            webbrowser.open_new_tab(f"https://www.youtube.com/results?search_query={statementyt}")
             speak("youtube is open now")
             time.sleep(5)
 
@@ -96,7 +105,7 @@ if __name__ == '__main__':
             base_url = "https://api.openweathermap.org/data/2.5/weather?"
             speak("whats the city name")
             city_name = takeCommand()
-            complete_url = base_url+"appid="+api_key+"&q="+city_name
+            complete_url = base_url + "appid=" + api_key + "&q=" + city_name
             response = requests.get(complete_url)
             x = response.json()
             if x["cod"] != "404":
@@ -128,7 +137,7 @@ if __name__ == '__main__':
             speak(f"the time is {strTime}")
 
         elif 'who are you' in statement or 'what can you do' in statement:
-            speak("You've got this, I'm Baymax You Say I do, I can make "
+            speak("You've got this, I'm Beymax You Say I do, I can make "
                   "sandwiches to juices... Ummm Something's wrong wait a second."
                   "So I can send emails help you in daily tasks i try"
                   "to learn as much as i can from your daily activites"
@@ -154,9 +163,9 @@ if __name__ == '__main__':
             time.sleep(6)
 
         elif "camera" in statement or "take a photo" in statement:
-            ec.capture(0,"robo camera","img.jpg")
+            ec.capture(0, "robo camera", "img.jpg")
 
-        elif 'search'  in statement:
+        elif 'search' in statement:
             statement = statement.replace("search", "")
             webbrowser.open_new_tab(statement)
             time.sleep(5)
@@ -171,7 +180,14 @@ if __name__ == '__main__':
             speak(answer)
             print(answer)
 
-        elif "sing a song" in statement or "play a song" in statement:
+        elif "open spotify" in statement:
+            webbrowser.open_new_tab("https://open.spotify.com")
+
+        elif "play" in statement:
+            statement_spotify = statement.replace("play", "", "")
+            webbrowser.open_new_tab(f"https://open.spotify.com/search={statement_spotify}")
+
+        elif "sing a song" in statement:
             speak("Ayy, ayy, ayy, ayy (ooh)"
                   "Ooh, ooh, ooh, ooh (ooh) Ayy, ayy Ooh, ooh, ooh, ooh"
                   "Needless to say, I keep her in check"
@@ -191,24 +207,23 @@ if __name__ == '__main__':
                   "She wanna ride me like a cruise"
                   "And I'm not tryna lose")
 
+        elif "pop up me notification" in statement:
+            notification.notify(title="hi", message="it's a message", timeout=10)
+
+        elif "set a reminder" or "remind me" in statement:
+            print("What shall I remind you about?")
+            speak("What shall I remind you about?")
+            text = str(input())
+            print("In how many minutes?")
+            speak("In how many minutes?")
+            local_time = float(input())
+            local_time = local_time * 60
+            time.sleep(local_time)
+            notification.notify(title=f"Reminder: {text}", message=f"{text}", timeout=12, app_name="Baymax")
+            print(text)
+
         def make_request(url):
             response = requests.get(url)
             return response.text
-
-if 'covid-19 stats' in statement:
-        # html_data = make_request('https://www.worldometers.info/coronavirus')
-        soup = BeautifulSoup(html_data, 'html.parser')
-        total_global_row = soup.find_all('tr', {'class': 'total_row'})[-1]
-        total_cases = total_global_row.find_all('td')[2].get_text()
-        new_cases = total_row.find_all('td')[3].get_text()
-        total_recover = total_row.find_all('td')[6].get_text()
-        print("Total cases :", total_cases)
-        print("New Cases :", new_cases[1:])
-        print("Total recovered :", total_recovered)
-        engine.speak("Total cases :", total_cases)
-        engine.speak("New Cases :", new_cases[1:])
-        engine.speak("Total recovered :", total_recovered)
-        notification_message = f"Total Cases : {total_cases}\n New Cases : {new_cases}\n Total recovered : {total_recover}\n"
-        notification.notify(title="Covid-19 Statistics", message=notification_message, timeout=5),
 
 time.sleep(3)
