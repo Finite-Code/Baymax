@@ -1,7 +1,4 @@
-# Baymax!
-
-<h1> A Note For Some People:</h1>
-<h1> -If you copy it I don't care cause' you forgot the definition of <b>HARDWORK</b></h1>
+# CODY AI!
 
 Q1. Can he search google?
 - Yes he can.
@@ -12,7 +9,7 @@ Q2. Can he search wikipedia?
 
 
 Q3. Can he wakeup on Hotwords?
-- Yes
+- no
 
 
 Q4. What is the Hotword?
@@ -53,3 +50,11 @@ Q12. Can he open news?
 
 Q13. Can he tell the Weather Forecast?
 - Yes
+
+Q14. Can he use Instagram?
+- Intresting question! Well, he can do by using the most secure protocols available, To add to it he can upload pictures follow/unfollow anyone get the list of your followers too! He can direct message anyone and that scales his abilities for high!
+
+# About Development
+I am working as an 1 man army Hope we collaborate!
+Telegram -
+- @GIT-Atharva
