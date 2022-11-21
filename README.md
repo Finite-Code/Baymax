@@ -57,4 +57,4 @@ Q14. Can he use Instagram?
 # About Development
 I am working as an 1 man army Hope we collaborate!
 Telegram -
-- @GIT-Atharva
+- @sudo-Atharva
