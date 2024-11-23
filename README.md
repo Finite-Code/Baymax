@@ -1,4 +1,4 @@
-# CODY AI!
+# What to name him?
 
 Q1. Can he search google?
 - Yes he can.
@@ -57,4 +57,4 @@ Q14. Can he use Instagram?
 # About Development
 I am working as an 1 man army Hope we collaborate!
 Telegram -
-- @sudo-Atharva
+- @finitecode
